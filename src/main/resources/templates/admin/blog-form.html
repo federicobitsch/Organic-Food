@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Blog </title>
+    <link rel="stylesheet" th:href="@{/css/blog-form.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+
+</head>
+<body>
+
+<header>
+    <h1 th:text="${blog.id != null} ? 'Editar Artículo' : 'Nuevo Artículo'"></h1>
+</header>
+
+<nav class="nav-container">
+    <div class="nav-links">
+        <a th:href="@{/index}">Inicio</a>
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/admin/blogs}">Vista de Blogs</a>
+        <a th:href="@{/logout}">Cerrar Sesión</a>
+    </div>
+</nav>
+
+<main class="blog-form-container">
+    <div class="form-header">
+        <h2 th:text="${blog.id != null} ? 'Modificar Artículo' : 'Crear Nuevo Artículo'"></h2>
+    </div>
+
+
+    <form th:action="${blog.id != null} ? @{/admin/blogs/editar/{id}(id=${blog.id})} : @{/admin/blogs/guardar}"
+          th:object="${blog}" method="post" enctype="multipart/form-data" class="modern-form">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="form-group">
+            <label>Título del Artículo:</label>
+            <input type="text" th:field="*{titulo}" class="form-control" placeholder="Ej: Los beneficios de la Rúcula..." required>
+        </div>
+
+        <div class="form-group">
+            <label>Contenido del Blog:</label>
+            <textarea th:field="*{contenido}" class="form-control" rows="10" placeholder="Escribe el contenido aquí..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Imagen de Portada (Desde tu PC):</label>
+            <input type="file" name="archivoImagen" class="form-control" accept="image/*">
+
+            <input type="hidden" th:field="*{imagenUrl}">
+
+            <small style="color: #666;" th:if="${blog.imagenUrl != null}">
+                Imagen actual cargada correctamente.
+            </small>
+        </div>
+        <button type="submit" class="btn-guardar">Guardar Cambios</button>
+    </form>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+        <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+    </div>
+</footer>
+
+</body>
+</html>

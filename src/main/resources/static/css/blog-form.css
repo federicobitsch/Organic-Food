@@ -1,0 +1,122 @@
+/* =========================================
+   VARIABLES Y RESET
+   ========================================= */
+:root {
+    --verde-principal: #2e8b57;
+    --verde-oscuro: #1b4332;
+    --verde-claro: #e8f5e9;
+    --blanco: #ffffff;
+    --gris-fondo: #f4f7f6;
+    --sombra: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+body {
+    background-color: var(--gris-fondo);
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+   ========================================= */
+.blog-form-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: var(--blanco);
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+    overflow: hidden; /* Para que el header respete los bordes redondeados */
+}
+
+/* HEADER DEL FORMULARIO */
+.form-header {
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-oscuro));
+    padding: 25px;
+    color: var(--blanco);
+    text-align: center;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   FORMULARIO MODERNO
+   ========================================= */
+.modern-form {
+    padding: 40px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--verde-oscuro);
+    font-size: 0.95rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid #eee;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Clave para que no se desborde */
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--verde-principal);
+    background-color: var(--blanco);
+    box-shadow: 0 0 8px rgba(46, 139, 87, 0.2);
+}
+
+/* Área de contenido larga */
+textarea.form-control {
+    resize: vertical;
+    min-height: 250px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   BOTÓN GUARDAR
+   ========================================= */
+.btn-guardar {
+    width: 100%;
+    background-color: var(--verde-principal);
+    color: var(--blanco);
+    border: none;
+    padding: 16px;
+    border-radius: 50px; /* Estilo píldora como tus otros botones */
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+}
+
+.btn-guardar:hover {
+    background-color: var(--verde-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(27, 67, 50, 0.4);
+}
+
+/* Ajuste para el enlace volver */
+nav a {
+    color: var(--verde-principal);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}

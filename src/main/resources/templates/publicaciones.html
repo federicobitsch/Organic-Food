@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Publicaciones - Organic Food</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/chacra.css">
+    <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+</head>
+<body>
+
+<header class="hero-section">
+    <h1>Chacras Disponibles</h1>
+</header>
+
+<nav class="nav-container">
+    <div class="user-info" th:if="${usuario != null}">
+        <a th:href="@{/perfil}">
+            <img id="nav-profile-pic"
+                 th:src="${usuario.fotoPerfil != null} ? ${usuario.fotoPerfil} : '/imagenes/avatar-session.jpg'"
+                 alt="Avatar" class="avatar-navbar">
+        </a>
+        <span id="nav-username" th:text="${usuario.nombreUsuario}">Federico Bitsch</span>
+    </div>
+
+    <div class="nav-links">
+        <a th:href="@{/index}">Inicio</a>
+        <a th:href="@{/contactoSoporte}">Soporte</a>
+        <a th:href="@{/productosOrganicos}">Productos Organicos </a>
+        <a th:href="@{/blog}">Blog</a>
+
+        <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn-login">Iniciar sesión</a>
+
+        <a th:href="@{/admin/dashboard}" th:if="${usuario != null && usuario.role.name() == 'ADMINISTRADOR'}" class="admin-link">Panel Admin</a>
+
+        <form th:action="@{/logout}" method="post" th:if="${usuario != null}" style="display:inline;">
+            <button type="submit" class="btn-logout-nav">Cerrar Sesión</button>
+        </form>
+    </div>
+</nav>
+
+<main class="container">
+    <!-- Listado de Chacras (Visible para todos) -->
+    <section id="publicaciones-container" class="grid-container"></section>
+
+    <hr class="separator">
+
+    <!-- Formulario de Crear Chacra (SOLO VISIBLE SI ESTÁ LOGUEADO) -->
+    <section class="form-section" sec:authorize="isAuthenticated()">
+        <h2>Crear mi Chacra</h2>
+        <p class="form-subtitle">Publicá tu producción orgánica y llegá a más personas.</p>
+
+        <div id="formulario" class="modern-form">
+            <div class="input-group">
+                <label for="nombreChacra">Nombre de la Chacra</label>
+                <input type="text" id="nombreChacra" placeholder="Ej: Chacra La Perla">
+            </div>
+
+            <!-- Input de imagen oculto por ahora según tu JS -->
+            <div class="input-group" style="display: none;">
+                <label for="imagenChacra">Foto de la Chacra</label>
+                <input type="file" id="imagenChacra" accept="image/*">
+            </div>
+
+            <div class="input-group">
+                <label for="descripcion">¿Qué produces?</label>
+                <textarea id="descripcion" rows="4" placeholder="Describí tus productos orgánicos..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="ubicacionChacra">Ubicación</label>
+                <input type="text" id="ubicacionChacra" placeholder="Ej: Calle 123, Río Grande">
+            </div>
+
+            <div class="input-group">
+                <label for="estadoChacra">Disponibilidad</label>
+                <select id="estadoChacra">
+                    <option value="DISPONIBLE">Disponible ahora</option>
+                    <option value="INACTIVO">No disponible</option>
+                </select>
+            </div>
+
+            <button type="button" onclick="guardarPublicacion(event)">Publicar mi Chacra</button>
+        </div>
+    </section>
+
+    <!-- Mensaje para Anónimos (SOLO VISIBLE SI NO ESTÁ LOGUEADO) -->
+    <section class="form-section" sec:authorize="!isAuthenticated()" style="text-align: center; padding: 40px; background-color: #f1f8e9; border-radius: 8px;">
+        <h3 style="color: #2e7d32; margin-bottom: 10px;">¿Sos productor y querés aparecer acá?</h3>
+        <p style="color: #555; margin-bottom: 20px;">Necesitás iniciar sesión en tu cuenta para poder registrar tu chacra.</p>
+        <a th:href="@{/login}" style="background-color: #1b5e20; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Iniciar Sesión / Registrarse</a>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+        <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+    </div>
+</footer>
+
+<script src="/js/publicaciones.js"></script>
+</body>
+</html>

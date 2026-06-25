@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Soporte</title>
+    <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/soporte.css}">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <h1>Contacto Soporte - Organic Food</h1>
+
+    <nav class="nav-container">
+        <div class="user-info" th:if="${usuario != null}">
+            <a th:href="@{/perfil}">
+                <img id="nav-profile-pic"
+                     th:src="${usuario.fotoPerfil != null} ? ${usuario.fotoPerfil} : '/imagenes/avatar-session.jpg'"
+                     alt="Avatar" class="avatar-navbar">
+            </a>
+            <span id="nav-username" th:text="${usuario.nombreUsuario}">Federico Bitsch</span>
+        </div>
+
+        <div class="nav-links">
+            <a th:href="@{/index}">Inicio</a>
+            <a th:href="@{/publicaciones}">Publicaciones</a>
+            <a th:href="@{/productosOrganicos}">Productos Organicos </a>
+            <a th:href="@{/blog}">Blog</a>
+
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn-login">Iniciar sesión</a>
+
+            <a th:href="@{/admin/dashboard}" th:if="${usuario != null && usuario.role.name() == 'ADMINISTRADOR'}" class="admin-link">Panel Admin</a>
+
+            <form th:action="@{/logout}" method="post" th:if="${usuario != null}" style="display:inline;">
+                <button type="submit" class="btn-logout-nav">Cerrar Sesión</button>
+            </form>
+        </div>
+    </nav>
+
+<main>
+    <div class="contact-form-container">
+        <h2>Contacto / Soporte</h2>
+        <p>Si tienes alguna consulta o problema, completa el siguiente formulario y nos pondremos en contacto contigo.</p>
+        <form id="contact-form" method="post">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+
+            <label for="subject">Asunto:</label>
+            <input type="text" id="subject" name="subject" placeholder="Motivo del contacto" required>
+
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</main>
+
+        <div id="response-message" class="hidden"></div>
+
+<footer class="main-footer">
+            <div class="footer-content">
+                <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+                <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+            </div>
+</footer>
+</body>
+
+<script th:src="@{/js/soporte.js}"></script>
+
+</html>

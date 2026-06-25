@@ -1,0 +1,320 @@
+/* =========================================
+   VARIABLES Y ESTILOS BASE
+   ========================================= */
+:root {
+    --verde-principal: #2c5d2e;
+    --verde-medio: #4CAF50;
+    --verde-claro: #f0f4f0;
+    --blanco: #ffffff;
+    --gris-fondo: #f4f7f6;
+    --gris-texto: #333;
+    --sombra-suave: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--gris-fondo);
+    margin: 0;
+    color: var(--gris-texto);
+}
+
+/* ==================================================
+   Navegación
+   ================================================== */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eef6f0;
+    padding: 10px 40px;
+    width:100%;
+    box-sizing: border-box;
+    gap:12px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-navbar {
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2d7a39;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #237a49;
+}
+
+h1 {
+    color: white;
+    padding: 10px;
+    text-align: center;
+    background-color:#2e8b57;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--verde-principal);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--verde-oscuro);
+}
+
+.btn-logout-nav {
+    background: none;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout-nav:hover {
+    background-color: #dc3545;
+    color: var(--blanco);
+}
+
+
+.admin-link {
+    background-color: var(--dorado-admin) !important;
+    color: var(--verde-oscuro) !important;
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   SECCIÓN DE RECOMENDACIONES MÉDICAS
+   ========================================= */
+.medical-recommendations {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    color: var(--verde-principal);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* GRILLA DE BENEFICIOS */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.benefit-card-pro {
+    background: var(--blanco);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid var(--verde-medio);
+}
+
+.benefit-card-pro:hover {
+    transform: translateY(-10px);
+}
+
+.icon-circle {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.benefit-card-pro h3 {
+    color: var(--verde-principal);
+    margin-bottom: 15px;
+}
+
+.benefit-card-pro p {
+    color: #555;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* CITA MÉDICA */
+.medical-quote {
+    background-color: var(--verde-principal);
+    color: var(--blanco);
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--sombra-suave);
+}
+
+blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+}
+
+cite {
+    font-weight: 300;
+    opacity: 0.8;
+}
+/* IMPACTO AMBIENTAL */
+.environmental-impact {
+    background-color: var(--blanco);
+    padding: 60px 20px;
+    margin-top: 40px;
+}
+
+/* ===== IMPACTO AMBIENTAL PROFESIONAL ===== */
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.impact-item {
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.impact-item:hover {
+    transform: translateY(-8px);
+}
+
+.impact-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.impact-item h4 {
+    color: var(--verde-principal);
+    margin-bottom: 10px;
+}
+
+.impact-item p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+
+/* TABLA COMPARATIVA */
+.comparison-section {
+    padding: 60px 20px;
+    background-color: var(--gris-fondo);
+}
+
+.comparison-section h3 {
+    text-align: center;
+    color: var(--verde-principal);
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.table-container {
+    overflow-x: auto; /* Para que sea responsive */
+}
+
+.comparison-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: var(--blanco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+}
+
+.comparison-table th {
+    background-color: var(--verde-principal);
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.comparison-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.comparison-table tr:hover {
+    background-color: #f9fdf9;
+}
+
+/* QUICK FACTS */
+.quick-facts {
+    padding: 40px 20px;
+}
+
+.facts-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #eef7ee;
+    border-left: 5px solid var(--verde-medio);
+    padding: 20px 40px;
+    border-radius: 8px;
+}
+
+.fact-box h4 {
+    color: var(--verde-principal);
+    margin-top: 0;
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+.main-footer {
+    background-color: #1b4332;
+    color: white;
+    padding: 18px 10px;
+    text-align: center;
+}
+
+.footer-content p {
+    font-size: 14px;
+}

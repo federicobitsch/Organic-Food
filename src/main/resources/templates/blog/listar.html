@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog - Organic FOOD</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" th:href="@{/css/blog.css}">
+    <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+
+</head>
+<body>
+
+<header>
+    <h1>BLOG - Organic Food</h1>
+
+
+    <nav class="nav-container">
+        <div class="user-info" th:if="${usuario != null}">
+            <a th:href="@{/perfil}">
+                <img id="nav-profile-pic"
+                     th:src="${usuario.fotoPerfil != null} ? ${usuario.fotoPerfil} : '/imagenes/avatar-session.jpg'"
+                     alt="Avatar" class="avatar-navbar">
+            </a>
+            <span id="nav-username" th:text="${usuario.nombreUsuario}">Federico Bitsch</span>
+        </div>
+
+        <div class="nav-links">
+            <a th:href="@{/index}">Inicio</a>
+            <a th:href="@{/contactoSoporte}">Soporte</a>
+            <a th:href="@{/publicaciones}">Publicaciones </a>
+            <a th:href="@{/productosOrganicos}">Productos Organicos</a>
+
+
+            <a th:href="@{/login}" th:if="${usuario == null}" class="btn-login">Iniciar Sesión</a>
+
+
+            <form th:action="@{/logout}" method="post" th:if="${usuario != null}" style="display:inline;">
+                <button type="submit" class="btn-logout-nav">Cerrar Sesión</button>
+            </form>
+
+            <a th:href="@{/admin/dashboard}"
+               th:if="${usuario != null && usuario.role.name() == 'ADMINISTRADOR'}"
+               class="admin-link">Panel Admin</a>
+        </div>
+    </nav>
+</header>
+
+<main class="blog-container">
+    <h2 class="section-title">Últimas Publicaciones Saludables</h2>
+
+    <div th:if="${blogs.isEmpty()}" class="no-content">
+        <p>No hay artículos disponibles en este momento.</p>
+    </div>
+
+    <div class="blog-grid">
+        <div class="blog-card" th:each="b : ${blogs}" th:if="${b.activo}">
+            <div class="card-image">
+                <img th:src="${b.imagenUrl != null ? b.imagenUrl : '/imagenes/default-blog.jpg'}" alt="Imagen del blog">
+            </div>
+            <div class="card-body">
+                <h3 th:text="${b.titulo}">Título del Blog</h3>
+                <p th:text="${#strings.abbreviate(b.contenido, 120)}"></p>
+                <div class="card-footer">
+                    <small th:text="${#temporals.format(b.fechaPublicacion, 'dd/MM/yyyy')}"></small>
+                    <a th:href="@{'/blog/' + ${b.id}}" class="btn-leer">Leer más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+        <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+    </div>
+</footer>
+
+ </body>
+</html>

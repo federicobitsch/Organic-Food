@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${blog.titulo} + ' | Organic Food'"></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" th:href="@{/css/detalle.css}">
+    <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+</head>
+<body>
+
+<nav class="nav-container">
+    <div class="user-info" th:if="${usuario != null}">
+        <a th:href="@{/perfil}">
+            <img id="nav-profile-pic"
+                 th:src="${usuario.fotoPerfil != null} ? ${usuario.fotoPerfil} : '/imagenes/avatar-session.jpg'"
+                 alt="Avatar" class="avatar-navbar">
+        </a>
+        <span id="nav-username" th:text="${usuario.nombreUsuario}">Federico Bitsch</span>
+    </div>
+
+    <div class="nav-links">
+        <a th:href="@{/index}">Inicio</a>
+        <a th:href="@{/contactoSoporte}">Soporte</a>
+        <a th:href="@{/publicaciones}">Publicaciones</a>
+        <a th:href="@{/productosOrganicos}">Productos Organicos</a>
+
+        <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn-login">Iniciar sesión</a>
+
+        <a th:href="@{/admin/dashboard}" th:if="${usuario != null && usuario.role.name() == 'ADMINISTRADOR'}" class="admin-link">Panel Admin</a>
+
+        <form th:action="@{/logout}" method="post" th:if="${usuario != null}" style="display:inline;">
+            <button type="submit" class="btn-logout-nav">Cerrar Sesión</button>
+        </form>
+    </div>
+</nav>
+
+
+<main class="main-content">
+    <article class="detalle-container">
+        <header class="post-header">
+            <h1 class="post-title" th:text="${blog.titulo}">Título del Blog</h1>
+            <div class="post-meta">
+                <span class="meta-item">
+                    <i class="icon">👤</i> Por: <strong th:text="${blog.autor != null ? blog.autor.nombreUsuario : 'Administrador Organic Food'}">Admin</strong>
+                </span>
+                <span class="meta-item">
+                    <i class="icon">📅</i> <span th:text="${#temporals.format(blog.fechaPublicacion, 'dd MMMM, yyyy')}">04/02/2026</span>
+                </span>
+            </div>
+            <div class="img-wrapper">
+                <img th:src="${blog.imagenUrl}" class="img-principal" alt="Imagen del artículo">
+            </div>
+        </header>
+
+        <section class="post-body">
+            <div class="content" th:text="${blog.contenido}">
+                Contenido del artículo...
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <section class="comments-section">
+            <h3>Comunidad (<span th:text="${comentarios.size()}">0</span> comentarios)</h3>
+
+            <div th:if="${comentarios.isEmpty()}" class="no-comments">
+                <p>Todavía no hay opiniones. ¡Sé el primero en participar!</p>
+            </div>
+
+            <div class="comment-list">
+                <div th:each="c : ${comentarios}" th:if="${c.activo}" class="comment-item">
+                    <img th:src="${c.usuario.fotoPerfil != null ? c.usuario.fotoPerfil : '/imagenes/avatar-session.jpg'}"
+                         class="avatar-comment" alt="User Avatar">
+                    <div class="comment-content">
+                        <div class="comment-top">
+                            <!--<strong th:text="${c.usuario.nombreUsuario}">Nombre</strong>-->
+                            <strong th:text="${c.usuario != null ? c.usuario.nombreUsuario : 'Usuario Anónimo'}">Nombre</strong>
+                            <small th:text="${#temporals.format(c.fechaComentario, 'dd/MM HH:mm')}">04/02 11:52</small>
+                        </div>
+                        <p class="comment-text" th:text="${c.texto}">asdasd</p>
+                        <div th:if="${usuario != null}" class="comment-actions">
+
+                            <form th:if="${c.usuario.email == usuario.email}"
+                                  th:action="@{/comentario/user/eliminar/{id}(id=${c.id})}" method="post" style="display:inline;">
+                                <button type="submit" class="btn-delete-small">Eliminar mi aporte</button>
+                            </form>
+
+                            <form th:if="${usuario.role.name() == 'ADMINISTRADOR'}"
+                                  th:action="@{/admin/blogs/eliminar-comentario/{id}(id=${c.id})}" method="post" style="display:inline; margin-left: 10px;">
+                                <input type="hidden" name="blogId" th:value="${blog.id}">
+                                <button type="submit" class="btn-delete-small" style="color: #d32f2f; border: 1px solid #d32f2f; padding: 2px 8px; border-radius: 4px;">
+                                    Borrar como Admin
+                                </button>
+                            </form>
+                        </div>
+                 </div>
+             </div>
+
+
+            <div class="add-comment" sec:authorize="isAuthenticated()">
+                <h4>Compartí tu pensamiento</h4>
+                <form th:action="@{'/blog/' + ${blog.id} + '/comentar'}" method="post" class="comment-form">
+                    <textarea name="texto" rows="3" placeholder="Escribí un comentario respetuoso..." required></textarea>
+                    <button type="submit" class="btn-submit-comment">Publicar Comentario</button>
+                </form>
+            </div>
+
+            <div class="login-prompt" sec:authorize="!isAuthenticated()">
+                <p>¿Querés participar? <a th:href="@{/login}">Iniciá sesión</a> para dejar tu comentario.</p>
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+        <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+    </div>
+</footer>
+
+</body>
+</html>

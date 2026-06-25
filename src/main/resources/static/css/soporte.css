@@ -1,0 +1,248 @@
+/* =========================
+   RESET Y BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f9f6;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   HEADER
+========================= */
+.main-header {
+    background-color: #2e8b57;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.header-content h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.logo img {
+    height: 55px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.nav-container {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2e8b57;
+    font-weight: 600;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #256f46;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-navbar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #2e8b57;
+}
+
+#nav-username {
+    font-weight: 600;
+    color: #333;
+}
+
+
+.btn-login {
+    background-color: #2e8b57;
+    color: white !important;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+.btn-login:hover {
+    background-color: #256f46;
+}
+
+.btn-logout-nav {
+    background: none;
+    border: none;
+    color: #2e8b57;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-logout-nav:hover {
+    color: #dc3545;
+}
+
+
+/* =========================
+   MAIN - CONTACTO
+========================= */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 0px;
+}
+
+.contact-form-container {
+    background-color: white;
+    width: 100%;
+    max-width: 520px;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-container h2 {
+    color: #2e8b57;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contact-form-container p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+input,
+textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    margin-bottom: 18px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2e8b57;
+    box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+button {
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #256f46;
+    transform: translateY(-1px);
+}
+
+.admin-link {
+    background-color: var(--dorado-admin) !important;
+    color: var(--verde-oscuro) !important;
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* =========================
+   MENSAJE RESPUESTA
+========================= */
+#response-message {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
+}
+
+#response-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#response-message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.main-footer {
+    background-color: #1b4332;
+    color: white;
+    padding: 18px 10px; !important;
+    text-align: center;
+    margin-top:0 !important;
+}
+
+
+.footer-content p {
+    font-size: 14px;
+}

@@ -1,0 +1,168 @@
+/* =========================================
+   VARIABLES Y RESET (Paleta Organic Food)
+   ========================================= */
+:root {
+    --verde-oscuro: #1b4332;
+    --verde-medio: #2e8b57;
+    --verde-acento: #4CAF50;
+    --verde-fondo: #f0f4f0;
+    --blanco: #ffffff;
+    --gris-input: #f9f9f9;
+}
+
+body {
+    background-color: var(--verde-fondo) !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   FORZAR VISIBILIDAD (Evita el display: none)
+   ========================================= */
+.container,
+.form-section,
+#formulario,
+.modern-form {
+    display: block !important; /* Esto anula cualquier 'none' de otros archivos */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* =========================================
+   SECCIÓN HERO
+   ========================================= */
+.hero-section {
+    background-color: #2e8b57;
+    color: var(--blanco);
+    padding: 22px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+h2,{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+/* =========================================
+   GRILLA DE CHACRAS (Cards)
+   ========================================= */
+.grid-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-publicacion {
+    background: var(--blanco);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-top: 6px solid var(--verde-acento);
+    transition: transform 0.3s ease;
+}
+
+.card-publicacion:hover {
+    transform: translateY(-10px);
+}
+
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--verde-claro);
+    padding: 10px 5%;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ddd;
+    gap:12px;
+}
+
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* =========================================
+   FORMULARIO PROFESIONAL
+   ========================================= */
+.form-section {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.modern-form {
+    background: var(--blanco);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    color: var(--verde-oscuro);
+    margin-bottom: 10px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--gris-input); /* Fondo gris claro profesional */
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Evita que se salga del contenedor */
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--verde-acento);
+    outline: none;
+    background-color: var(--blanco);
+}
+
+/* =========================================
+   BOTÓN SUBMIT
+   ========================================= */
+.btn-submit {
+    width: 100%;
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: var(--verde-medio);
+    transform: scale(1.02);
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 60px 0;
+}

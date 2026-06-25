@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/productosOrganicos.css">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+
+  <title>Productos Orgánicos</title>
+
+</head>
+<body>
+
+  <h1>Productos Organicos - Organic Food</h1>
+
+  <nav class="nav-container">
+    <div class="user-info" th:if="${usuario != null}">
+      <a th:href="@{/perfil}">
+        <img id="nav-profile-pic"
+             th:src="${usuario.fotoPerfil != null} ? ${usuario.fotoPerfil} : '/imagenes/avatar-session.jpg'"
+             alt="Avatar" class="avatar-navbar">
+      </a>
+      <span id="nav-username" th:text="${usuario.nombreUsuario}">Federico Bitsch</span>
+    </div>
+
+    <div class="nav-links">
+      <a th:href="@{/index}">Inicio</a>
+      <a th:href="@{/contactoSoporte}">Soporte</a>
+      <a th:href="@{/publicaciones}">Publicaciones </a>
+      <a th:href="@{/blog}">Blog</a>
+
+      <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn-login">Iniciar sesión</a>
+
+      <a th:href="@{/admin/dashboard}" th:if="${usuario != null && usuario.role.name() == 'ADMINISTRADOR'}" class="admin-link">Panel Admin</a>
+
+      <form th:action="@{/logout}" method="post" th:if="${usuario != null}" style="display:inline;">
+        <button type="submit" class="btn-logout-nav">Cerrar Sesión</button>
+      </form>
+    </div>
+  </nav>
+
+
+
+  <section class="medical-recommendations">
+    <div class="container">
+      <div class="section-header">
+        <h2>¿Por qué los médicos recomiendan lo Orgánico?</h2>
+        <p>Expertos en nutrición aseguran que el consumo de productos libres de químicos reduce riesgos de enfermedades crónicas y fortalece el sistema inmunológico.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card-pro">
+          <div class="icon-circle">🍎</div>
+          <h3>Frutas Orgánicas</h3>
+          <p>Poseen hasta un 40% más de antioxidantes que las convencionales, vitales para prevenir el envejecimiento celular.</p>
+        </div>
+        <div class="benefit-card-pro">
+          <div class="icon-circle">🥦</div>
+          <h3>Verduras de Estación</h3>
+          <p>Al crecer en su tiempo natural, concentran mayor cantidad de vitaminas C y E, esenciales para la vista y la piel.</p>
+        </div>
+        <div class="benefit-card-pro">
+          <div class="icon-circle">🌾</div>
+          <h3>Cereales Integrales</h3>
+          <p>Sin aditivos ni pesticidas, ayudan a regular la flora intestinal y mejoran la absorción de nutrientes.</p>
+        </div>
+      </div>
+
+      <div class="medical-quote">
+        <blockquote>
+          "Comer orgánico no es solo una moda, es devolverle al cuerpo la pureza química que necesita para funcionar al 100%."
+        </blockquote>
+        <cite>— Comité de Nutrición de Tierra del Fuego</cite>
+      </div>
+    </div>
+</section>
+
+  <section class="environmental-impact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Compromiso con la Tierra del Fuego</h2>
+        <p>La producción orgánica no solo cuida tu salud, sino que protege nuestro ecosistema fueguino eliminando la contaminación de napas y suelos.</p>
+      </div>
+
+      <div class="impact-item">
+        <img src="/imagenes/Polinizadores.jpg" alt="Protección de Polinizadores" class="impact-img">
+        <h4>Protección de Polinizadores</h4>
+        <p>Al no usar pesticidas, permitimos que las abejas y fauna local prosperen, manteniendo el equilibrio biológico.</p>
+      </div>
+
+      <div class="impact-item">
+        <img src="/imagenes/agua-medioambiente.jpg" alt="Cuidado del Agua" class="impact-img">
+        <h4>Cuidado del Agua</h4>
+        <p>Nuestras chacras utilizan métodos de riego que evitan el desperdicio y la filtración de químicos tóxicos.</p>
+      </div>
+
+      <div class="impact-item">
+        <img src="/imagenes/cultivo.jpg" alt="Suelo Vivo" class="impact-img">
+        <h4>Suelo Vivo</h4>
+        <p>Fomentamos la rotación de cultivos para que la tierra recupere sus minerales de forma natural.</p>
+      </div>
+  </section>
+
+  <section class="comparison-section">
+    <div class="container">
+      <h3>Orgánico vs. Convencional</h3>
+      <div class="table-container">
+        <table class="comparison-table">
+          <thead>
+          <tr>
+            <th>Característica</th>
+            <th>Producto Orgánico</th>
+            <th>Producto Convencional</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><strong>Sabor</strong></td>
+            <td>Intenso y natural (maduración al sol)</td>
+            <td>A menudo insípido (maduración en cámaras)</td>
+          </tr>
+          <tr>
+            <td><strong>Químicos</strong></td>
+            <td>0% Pesticidas sintéticos</td>
+            <td>Presencia de residuos químicos</td>
+          </tr>
+          <tr>
+            <td><strong>Nutrientes</strong></td>
+            <td>Hasta 60% más antioxidantes</td>
+            <td>Niveles estándar</td>
+          </tr>
+          <tr>
+            <td><strong>Conservación</strong></td>
+            <td>Tiempo natural (libre de ceras)</td>
+            <td>Prolongada artificialmente</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-facts">
+    <div class="container">
+      <div class="facts-wrapper">
+        <div class="fact-box">
+          <h4>¿Sabías que?</h4>
+          <p>Un suelo orgánico captura mucho más dióxido de carbono que uno tratado con químicos, ayudando a combatir el cambio climático desde nuestra provincia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+    <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

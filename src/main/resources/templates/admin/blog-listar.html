@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Listado de Blogs</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/blog-listar.css">
+</head>
+<body>
+
+<h1>Panel de Blogs - Admin </h1>
+<nav class="admin-nav">
+    <div class="nav-links">
+        <a th:href="@{/index}">Ver Sitio</a>
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit" class="btn-logout-nav" style="color: red; cursor:pointer; background:none; border:none; font-weight:bold;">Cerrar Sesión</button>
+        </form>
+    </div>
+</nav>
+
+<main class="container">
+    <div class="table-header">
+        <h2>Gestión de Artículos</h2>
+        <a th:href="@{/admin/blogs/nuevo}" class="btn-nuevo">+ Crear Nuevo Blog</a>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Imagen</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="b : ${blogs}">
+                <td th:text="${b.id}"></td>
+                <td th:text="${b.titulo}" class="text-bold"></td>
+                <td>
+                    <img th:src="${b.imagenUrl != null} ? ${b.imagenUrl} : '/imagenes/default-blog.jpg'"
+                         class="img-mini" alt="Vista previa">
+                </td>
+                <td>
+                        <span th:class="${b.activo} ? 'badge-activo' : 'badge-inactivo'"
+                              th:text="${b.activo} ? 'Activo' : 'Inactivo'"></span>
+                </td>
+                <td class="actions-cell">
+                    <a th:href="@{/admin/blogs/editar/{id}(id=${b.id})}" class="btn-editar">Editar</a>
+                    <form th:action="@{/admin/blogs/eliminar/{id}(id=${b.id})}" method="post" style="display:inline;">
+                        <button type="submit" class="btn-eliminar" onclick="return confirm('¿Eliminar este artículo?')">Borrar</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+        <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrar Publicaciones</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/admin-publicaciones.css">
+    <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+
+</head>
+<body>
+
+<h1>Gestión de Publicaciones - Admin</h1>
+
+<div class="nav-links">
+    <a th:href="@{/admin/dashboard}">Dashboard</a>
+    <a th:href="@{/admin/blogs}">Blogs</a>
+    <a th:href="@{/logout}">Cerrar Sesión</a>
+</div>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Chacra</th>
+        <th>Descripción</th>
+        <th>Ubicación</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+    </tr>
+
+
+    <tr th:each="p : ${publicaciones}" th:classappend="${p.estadoChacra != null and p.estadoChacra.name() == 'INACTIVO'} ? 'fila-eliminada' : ''">
+        <td th:text="${p.id}"></td>
+
+       
+        <td th:text="${p.nombre}"></td>
+        <td th:text="${p.descripcion}"></td>
+        <td th:text="${p.ubicacion}"></td>
+
+        <td>
+            <span th:class="'badge ' + ${p.estadoChacra}" th:text="${p.estadoChacra}"></span>
+        </td>
+        <td>
+            <a th:href="@{/admin/publicaciones/editar/{id}(id=${p.id})}" class="btn-editar">Editar</a>
+            <a th:href="@{/admin/publicaciones/eliminar/{id}(id=${p.id})}" class="btn-eliminar" onclick="return confirm('¿Estás seguro de que querés pasar esta chacra a modo INACTIVO? No se borrará de la base de datos.')">Pausar/Eliminar</a>
+        </td>
+    </tr>
+</table>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+        <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+    </div>
+
+</footer>
+</body>
+</html>

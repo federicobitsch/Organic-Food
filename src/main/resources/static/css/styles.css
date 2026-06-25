@@ -1,0 +1,217 @@
+ /* Estilos básicos */
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    background-color:#2e8b57;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 15px;    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Contenedor de publicaciones */
+#publicaciones-container {
+    margin: 0px;
+}
+
+.publicacion {
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.publicacion h3 {
+    color: #333;
+}
+
+.publicacion p {
+    color: #555;
+}
+
+.btn-eliminar {
+    background-color: #e74c3c;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* Estilo del formulario */
+#formulario {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+#formulario input,
+#formulario select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#formulario button {
+    background-color: #3498db;
+}
+
+#formulario button:hover {
+    background-color: #2980b9;
+}
+
+
+/* Paleta de Colores */
+:root {
+    --verde-principal: #2e8b57;
+    --verde-oscuro: #1b4332;
+    --verde-claro: #eef6f0;
+    --dorado-admin: #ffcc00;
+    --blanco: #ffffff;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--verde-principal);
+    color: var(--blanco);
+    padding: 20px;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo img {
+    height: 60px;
+    filter: brightness(1.1);
+}
+
+/* Navbar */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--verde-claro);
+    padding: 10px 5%;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ddd;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-navbar {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--verde-principal);
+    transition: transform 0.3s ease;
+}
+
+.avatar-navbar:hover {
+    transform: scale(1.1);
+}
+
+#nav-username {
+    color: var(--verde-oscuro);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--verde-principal);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--verde-oscuro);
+}
+
+/* Botones Especiales */
+.btn-logout-nav {
+    background: none;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-logout-nav:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.admin-link {
+    background-color: var(--dorado-admin) !important;
+    color: var(--verde-oscuro) !important;
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer Profesional */
+.main-footer {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 30px 20px;
+    width: 100%;
+    margin-top: 60px;
+    box-sizing: border-box;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.footer-content strong {
+    color: #b7e4c7; /* Un verde clarito para resaltar nombres */
+}

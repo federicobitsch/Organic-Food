@@ -1,0 +1,667 @@
+/* ==================================================
+   Estilos Generales
+   ================================================== */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    overflow-x: hidden; /* PREVENCIÓN DEL DESBORDAMIENTO HORIZONTAL */
+}
+
+h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center; /* Centrar h1 general por si acaso */
+}
+
+p {
+    font-size: 1.2em;
+    margin: 20px 0;
+    color: #555;
+    text-align: center;
+}
+
+/* ==================================================
+   Header
+   ================================================== */
+header {
+    background-color: #2e8b57;
+    color: white;
+    padding: 10px 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo img {
+    mix-blend-mode: multiply;
+    max-width: 100%; /* Asegurar que el logo no desborde */
+    height: 70px;
+    padding: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+/* ==================================================
+   Navegación
+   ================================================== */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eef6f0;
+    padding: 10px 40px;
+    width:100%;
+    box-sizing: border-box;
+    gap:12px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-navbar {
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2d7a39;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #237a49;
+}
+
+.social-btn.instagram img {
+    background: transparent;
+    border-radius:8px;
+}
+
+/* ==================================================
+   Secciones de Contenido (Productos, Testimoniales)
+   ================================================== */
+.product-section,
+.testimonial-section {
+    width: 80%;
+    margin: 50px 0;
+    text-align: center;
+}
+
+.product-section h2,
+.testimonial-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2e8b57;
+}
+
+.products {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Para que los productos pasen a la siguiente línea */
+}
+
+.product {
+    width: calc(33.33% - 13.33px); /* Para tener espacio entre 3 productos */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    display: block; /* Evitar espacio extra debajo de la imagen */
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Para que los testimonios pasen a la siguiente línea */
+}
+
+.testimonial {
+    width: 45%; /* Ajustar ancho para que quepan dos en pantallas más grandes */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial h4 {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2e8b57;
+}
+
+.testimonial-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.testimonial span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* ==================================================
+   Sección CTA (Call to Action)
+   ================================================== */
+.cta-section {
+    background-color: #4CAF50;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    margin-top: 40px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+.cta-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    background-color: #fff;
+    color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e7e7e7;
+}
+
+/* ==================================================
+   Sección de Beneficios
+   ================================================== */
+.benefits-section {
+    background-color: #f5f9f6;
+    padding: 60px 20px;
+    text-align: center;
+    box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+.benefits-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefits-section h2 {
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+    font-size: 1.5rem;
+    color: #388e3c;
+    margin-bottom: 15px;
+}
+
+.benefit-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ==================================================
+   Sección de Marcas
+   ================================================== */
+.brands-section {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #f8f8f8;
+    text-align: center;
+    box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+.brands-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.brands-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 60px;
+    padding: 25px;
+}
+
+
+.brand-logo img {
+    height: 50px;
+    max-width: 100%; /* Asegurar que los logos no desborden */
+    height: 77px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+    display: block; /* Evitar espacio extra debajo de la imagen */
+}
+
+.brand-logo img:hover {
+    opacity: 1;
+}
+
+/* ==================================================
+   Sección Sobre Nosotros
+   ================================================== */
+.about-us-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #e7f7e5;
+    margin-top: 50px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+.about-us-section h2 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.about-us-section p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* ==================================================
+   Sección de Preguntas Frecuentes (FAQ) - Para el Footer
+   ================================================== */
+.faq-section {
+    width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #f8f8f8; /* Un fondo claro para distinguirlo (opcional) */
+    color: #333;
+}
+
+.faq-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #2e8b57;
+}
+
+.faq-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.faq-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+}
+
+.faq-card .question {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.faq-card .answer {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.avatar-navbar {
+    height: 40px; /* Tamaño ideal para el nav */
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #2e8b57; /* Verde orgánico */
+    transition: transform 0.3s;
+}
+
+.avatar-navbar:hover {
+    transform: scale(1.1);
+}
+
+/* Botones Especiales */
+.btn-logout-nav {
+    background: none;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-logout-nav:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+.admin-link {
+    background-color: var(--dorado-admin) !important;
+    color: var(--verde-oscuro) !important;
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* ==================================================
+   Sección Contador de Éxito
+   ================================================== */
+.success-counter {
+    background-color: #1b4332; /* Verde muy oscuro para contraste */
+    color: white;
+    width: 100%;
+    padding: 60px 0;
+    margin: 40px 0;
+}
+
+.counter-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.counter-item {
+    text-align: center;
+}
+
+.counter-number {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #b7e4c7; /* Verde clarito para resaltar */
+    margin: 0;
+}
+
+.counter-item p {
+    color: white;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* ==================================================
+   Sección Redes Sociales Pro (Botones con Hover)
+   ================================================== */
+.social-pro-section {
+    width: 80%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.social-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.social-btn img {
+    width: 25px;
+    height: 25px;
+    background:white;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Colores de marca */
+.facebook {
+    background-color: #3b5998; }
+.instagram { background-color: #b12540; }
+.twitter { background-color:black;}
+
+/* Mejora para la foto del navbar (Circular) */
+.avatar-navbar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid #2e8b57;
+    object-fit: cover;
+}
+
+/* Estilos para pantallas más pequeñas (opcional) */
+@media (max-width: 600px) {
+    .faq-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}
+/* ===========================
+   WHATSAPP FLOAT PROFESIONAL
+=========================== */
+
+.whatsapp-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+}
+
+/* Tooltip */
+.whatsapp-tooltip {
+    background: #ffffff;
+    color: #2d7a39;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-right: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+/* Botón */
+.whatsapp-button {
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #25D366, #1da851);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button svg {
+    width: 32px;
+    height: 32px;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* Mostrar tooltip en hover */
+.whatsapp-container:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animación pulso elegante */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+
+
+/* ==================================================
+   Footer
+   ================================================== */
+footer {
+    background-color: #5a9d72;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-media-icons {
+    text-align: center;
+}
+
+.social-media-icons a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.social-media-icons img {
+    width: 30px;
+    height: auto;
+    filter: none; /* Aseguramos que no tengan filtros que los oculten */
+}
+
+.social-media-icons img:hover {
+    transform: scale(1.1);
+}
+
+footer p {
+    font-size: 0.9em;
+    margin: 5px 0 0;
+    color: #f0f0f0;
+}
+.avatar-navbar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #2e8b57;
+}
+
+.main-footer {
+    background-color: #1b4332;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    width: 100%;
+}

@@ -1,0 +1,245 @@
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #f0f4f0; /* Fondo verde muy clarito orgánico */
+    min-height: 100vh;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.nav-container {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2e8b57;
+    font-weight: 600;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #256f46;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-navbar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #2e8b57;
+}
+
+#nav-username {
+    font-weight: 600;
+    color: #333;
+}
+
+.admin-link {
+    background-color: var(--dorado-admin) !important;
+    color: var(--verde-oscuro) !important;
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* Botones Especiales */
+.btn-logout-nav {
+    background: none;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-logout-nav:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* PROFILE CARD */
+.profile-card {
+    background-color: white;
+    max-width: 450px;
+    margin: 60px auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* HEADER DEL PERFIL */
+.profile-header {
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.image-upload-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.image-upload-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.3);
+    object-fit: cover;
+}
+
+.btn-change-photo {
+    display: block;
+    width: fit-content;
+    margin: 10px auto 0;
+    background: white;
+    color: #2e7d32;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* FORMULARIO */
+.profile-form {
+    padding: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-size: 0.9rem;
+    color: #333;
+    transition: 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: white;
+}
+
+.readonly-input {
+    background-color: #f0f0f0 !important;
+    cursor: not-allowed;
+    color: #777 !important;
+}
+
+/* BOTÓN GUARDAR */
+.btn-save {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    transition: 0.3s;
+}
+
+h1 {
+    color: white;
+    padding: 10px;
+    text-align: center;
+    background-color:#2e8b57;
+}
+
+.btn-save:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+}
+
+/* MENSAJES DE ÉXITO/ERROR */
+.mensaje-exito {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.mensaje-error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 10px;
+
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.main-footer {
+    background-color: #1b4332;
+    color: white;
+    padding: 18px 10px;
+    text-align: center;
+    margin-top:0 !important;
+}
+
+
+.footer-content p {
+    font-size: 14px;
+}
+

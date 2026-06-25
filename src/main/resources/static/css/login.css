@@ -1,0 +1,149 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f7f6; /* Un fondo más suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Usar min-height para que el fondo cubra toda la pantalla */
+    margin: 0;
+}
+
+h1 {
+    color: #333; /* Un color de texto más oscuro y neutro */
+    text-align: center;
+    margin-bottom: 30px; /* Más espacio debajo del título */
+    font-size: 2.2em; /* Tamaño de fuente un poco más grande */
+    font-weight: 500; /* Un peso de fuente ligeramente más ligero */
+}
+
+/* Estilos del formulario */
+form {
+    background-color: #fff; /* Fondo blanco sólido */
+    padding: 40px;
+    border-radius: 10px; /* Bordes ligeramente menos redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    width: 400px;
+    max-width: 90%; /* Hacer el formulario más adaptable en pantallas pequeñas */
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Más espacio entre los elementos del formulario */
+}
+
+label {
+    font-size: 0.95em; /* Tamaño de fuente ligeramente más pequeño */
+    color: #555; /* Color de etiqueta más suave */
+    margin-bottom: 8px;
+    text-align: left;
+    display: block;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ddd; /* Borde más claro */
+    border-radius: 6px; /* Bordes menos redondeados */
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9; /* Fondo de entrada ligeramente grisáceo */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #5cb85c; /* Un verde más suave para el foco */
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+    outline: none;
+}
+
+button {
+    padding: 14px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5cb85c; /* Un verde más suave */
+    border: none;
+    border-radius: 6px; /* Bordes menos redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(92, 184, 92, 0.4); /* Sombra más sutil */
+}
+
+button:hover {
+    background-color: #4cae4c; /* Un verde ligeramente más oscuro al pasar el ratón */
+    box-shadow: 0 3px 7px rgba(92, 184, 92, 0.5);
+}
+
+.link-container {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los enlaces */
+}
+
+.link-container a {
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+    color: #5cb85c; /* Mismo color verde para los enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-container a:hover {
+    color: #4cae4c;
+}
+/* ... tus otros estilos de login ... */
+
+.error-message {
+    background-color: #ffebee; /* Fondo rojo claro */
+    color: #d32f2f; /* Texto rojo oscuro */
+    border: 1px solid #d32f2f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.success-message {
+    background-color: #e8f5e9; /* Verde muy claro */
+    color: #2e7d32; /* Verde oscuro */
+    border: 1px solid #2e7d32;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    form {
+        padding: 30px;
+    }
+
+    label {
+        font-size: 0.9em;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        font-size: 0.95em;
+    }
+
+    button {
+        font-size: 1em;
+    }
+
+    .link-container a {
+        font-size: 0.85em;
+    }
+
+}

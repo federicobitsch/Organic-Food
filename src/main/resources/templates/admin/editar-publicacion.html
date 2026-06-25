@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/editar-chacra.css">
+  <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+
+  <title>Editar Publicación - Admin</title>
+</head>
+<body>
+
+<h1>Editar Publicación</h1>
+
+<nav class="admin-nav">
+  <h1>Dashboard Publicacion - Admin</h1>
+  <div class="nav-links">
+    <a th:href="@{/admin/dashboard}">Dashboard</a>
+    <a th:href="@{/admin/publicaciones}">Publicaciones</a>
+    <a th:href="@{/admin/dashboard}">Blog</a>
+    <a th:href="@{/logout}">Cerrar Sesión</a>
+  </div>
+</nav>
+
+<form th:action="@{/admin/publicaciones/editar/{id}(id=${publicacion.id})}" method="post">
+
+  <label>Nombre chacra</label><br>
+  <input type="text" name="nombre" th:value="${publicacion.nombre}"><br><br>
+
+  <label>Descripción</label><br>
+  <textarea name="descripcion" th:text="${publicacion.descripcion}"></textarea><br><br>
+
+  <label>Ubicación</label><br>
+  <input type="text" name="ubicacion" th:value="${publicacion.ubicacion}"><br><br>
+
+  <label>Estado</label><br>
+  <select name="estadoChacra">
+    <option th:selected="${publicacion.estadoChacra.name() == 'DISPONIBLE'}" value="DISPONIBLE">Disponible</option>
+    <option th:selected="${publicacion.estadoChacra.name() == 'INACTIVO'}" value="INACTIVO">No disponible</option>
+  </select>
+
+  <button type="submit">Guardar</button>
+</form>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+    <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración - Food Organic</title>
+  <link rel="stylesheet" href="/css/admin-dashboard.css">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+
+</head>
+<body>
+
+<h1>Dashboard Administrativo</h1>
+<nav class="admin-nav">
+  <div class="nav-links">
+    <a th:href="@{/index}">Inicio</a>
+    <a th:href="@{/admin/publicaciones}">Publicaciones</a>
+    <a th:href="@{/admin/blogs}">Blogs</a>
+    <a th:href="@{/logout}">Cerrar Sesión</a>
+  </div>
+</nav>
+
+<div class="dashboard-container">
+  <section class="stats-grid">
+    <div class="stat-card">
+      <h3>Publicaciones</h3>
+      <p>Gestiona las chacras activas.</p>
+      <a th:href="@{/admin/publicaciones}" class="btn-admin">Ver Publicaciones</a>
+    </div>
+    <div class="stat-card">
+      <h3>Blogs</h3>
+      <p>Administrar publicaciones y moderar comentarios.</p>
+      <a th:href="@{/admin/blogs}" class="btn-admin">Gestionar Blogs</a>
+    </div>
+  </section>
+
+  <section class="admin-section">
+    <h2>Usuarios Registrados</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre / Username</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th>Fecha Registro</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="u : ${usuarios}">
+          <td th:text="${u.id}"></td>
+          <td th:text="${u.nombreUsuario ?: 'Sin Nombre'}"></td>
+          <td th:text="${u.email}"></td>
+          <td>
+            <span th:class="'badge ' + ${u.role}" th:text="${u.role}"></span>
+          </td>
+          <td th:text="${u.fechaRegistro}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+    <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+  </div>
+</footer>
+
+</body>
+</html>

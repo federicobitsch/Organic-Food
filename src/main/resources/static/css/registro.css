@@ -1,0 +1,147 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f7f6; /* Fondo suave y limpio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 400px;
+    max-width: 90%; /* Adaptable en pantallas pequeñas */
+    text-align: center;
+}
+.error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #d32f2f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+h1 {
+    color: #333; /* Color de texto oscuro y neutro */
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+label {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+    text-align: left; /* Alinear las etiquetas a la izquierda */
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px; /* Más espacio entre los campos */
+    border: 1px solid #ddd; /* Borde más claro */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #5cb85c; /* Verde suave para el foco */
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #5cb85c; /* Verde suave */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(92, 184, 92, 0.4);
+}
+
+button[type="submit"]:hover {
+    background-color: #4cae4c; /* Verde ligeramente más oscuro al pasar el ratón */
+    box-shadow: 0 3px 7px rgba(92, 184, 92, 0.5);
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    color: #5cb85c; /* Mismo color verde para los enlaces */
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #4cae4c;
+    text-decoration: underline;
+}
+
+button[type="button"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #f0ad4e; /* Un color llamativo para el botón de soporte */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(240, 173, 78, 0.4);
+}
+
+button[type="button"]:hover {
+    background-color: #eea236;
+    box-shadow: 0 3px 7px rgba(240, 173, 78, 0.5);
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 0.9em;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        font-size: 0.95em;
+        margin-bottom: 15px;
+    }
+
+    button {
+        font-size: 1em;
+    }
+
+    a {
+        font-size: 0.85em;
+        margin-top: 15px;
+    }
+}

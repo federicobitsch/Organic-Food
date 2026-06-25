@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Productos Organicos en Tierra del Fuego,Directo de charcas locales">
+    <meta name="keywords" content="productos organicos, Tierra del Fuego, Comida saludable, chacras">
+    <link rel="shortcut icon" href="/imagenes/logo-website.png" type="image/x-icon">
+    <script src="/js/main.js" defer></script>
+    <link rel="stylesheet" href="/css/index.css">
+
+    <title>Bienvenido a Organic Food </title>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="/imagenes/logo-navbar.PNG" alt="Logo Organic Food">
+        </div>
+        <h1>Bienvenido a Organic Food</h1>
+    </div>
+</header>
+
+<nav class="nav-container">
+    <div class="user-info" th:if="${usuario != null}">
+        <a th:href="@{/perfil}">
+            <img id="nav-profile-pic"
+                 th:src="${usuario.fotoPerfil != null} ? ${usuario.fotoPerfil} : '/imagenes/avatar-session.jpg'"
+                 alt="Avatar" class="avatar-navbar">
+        </a>
+        <span id="nav-username" th:text="${usuario.nombreUsuario}">Federico Bitsch</span>
+    </div>
+
+    <div class="nav-links">
+        <a th:href="@{/index}">Inicio</a>
+        <a th:href="@{/contactoSoporte}">Soporte</a>
+        <a th:href="@{/publicaciones}">Publicaciones </a>
+        <a th:href="@{/productosOrganicos}">Productos Organicos</a>
+        <a th:href="@{/blog}">Blog</a>
+
+        <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn-login">Iniciar sesión</a>
+        <a th:href="@{/admin/dashboard}" th:if="${usuario != null && usuario.role.name() == 'ADMINISTRADOR'}" class="admin-link">Panel Admin</a>
+
+
+        <form th:action="@{/logout}" method="post" th:if="${usuario != null}" style="display:inline;">
+            <button type="submit" class="btn-logout-nav">Cerrar Sesión</button>
+        </form>
+    </div>
+</nav>
+
+<p>Navega por nuestras secciones y encuentra todo lo que necesitas.</p>
+
+
+<!-- Sección de Productos Orgánicos -->
+
+<div class="product-section">
+    <h2>Nuestros Productos Orgánicos</h2>
+    <a href="productosOrganicos"><button class="cta-button">Mas Informacion</button></a>
+    <div class="products">
+        <!-- Producto 1 -->
+        <div class="product">
+            <img src="/imagenes/comida-organica-3.jpg" alt="Producto Orgánico 1">
+            <h3>Caja Fresca de Huerta Natural</h3>
+            <p>Disfruta una selección de vegetales orgánicos recién cosechados, libres de pesticidas y cultivados de manera sustentable.</p>
+        </div>
+        <!-- Producto 2 -->
+        <div class="product">
+            <img src="/imagenes/index-2.jpg" alt="Producto Orgánico 2">
+            <h3>Mercado Orgánico Premium</h3>
+            <p>Productos frescos seleccionados directamente de productores locales certificados.</p>
+        </div>
+        <!-- Producto 3 -->
+        <div class="product">
+            <img src="/imagenes/index-organic.jpg" alt="Producto Orgánico 3">
+            <h3>Variedad Natural de Temporada</h3>
+            <p>Una combinación de frutas y verduras orgánicas llenas de vitaminas, minerales y antioxidantes naturales.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de Testimonios -->
+<div class="testimonial-section">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonial-container">
+        <!-- Testimonio 1 -->
+        <div class="testimonial">
+            <p>"Gracias a Organic Food, mis chacras han sido un éxito. Los productos que ofrecemos son frescos y de calidad."</p>
+            <h4>Federico Bitsch - Productor</h4>
+        </div>
+        <!-- Testimonio 2 -->
+        <div class="testimonial">
+            <p>"La plataforma es fácil de usar y me ha ayudado a gestionar mejor mi negocio de productos orgánicos."</p>
+            <h4>Miguel Rodriguez - Cliente Satisfecho</h4>
+        </div>
+        <!-- Testimonio 3 -->
+        <div class="testimonial">
+            <p>"El sistema Organic Food me parece espectacular , me incentiva a cultivar."</p>
+            <h4>Jimena Viveros - Cliente Satisfecha</h4>
+        </div>
+        <!-- Testimonio 4 -->
+        <div class="testimonial">
+            <p>"La unica plataforma en la provincia de Tierra del Fuego , estoy contenta por este sistema."</p>
+            <h4> Susana Jihn - Productora</h4>
+        </div>
+    </div>
+</div>
+
+<!-- Sección CTA (Call to Action) -->
+<div class="cta-section">
+    <h2>Unete a nuestra comunidad saludable</h2>
+    <p>Empieza hoy mismo a disfrutar de productos organicos frescos y saludables.</p>
+    <a href="register"><button class="cta-button">Registrate ahora</button></a>
+</div>
+
+<!-- Sección sobre nosotros -->
+<div class="about-us-section">
+    <h2>¿Quienes somos?</h2>
+    <p>Somos una empresa de Tierra del Fuego comprometida con el bienestar de nuestros clientes, ofreciendo productos orgánicos de alta calidad que respetan el medio ambiente
+        con productores de la ciudad de Rio Grande. </p>
+</div>
+
+<section class="brands-section">
+    <h2>Nuestras Marcas Aliadas</h2> <div class="brands-container">
+    <div class="brand-logo">
+        <img src="/imagenes/empresas.png" alt="USDA Organic">
+    </div>
+    <div class="brand-logo">
+        <img src="/imagenes/empresas-alimentos-arg.png" alt="EU Organic">
+    </div>
+    <div class="brand-logo">
+        <img src="/imagenes/empresas-municipio.jpg" alt="Biopur">
+    </div>
+    <div class="brand-logo">
+        <img src="/imagenes/empresa-ministerio.png" alt="Star-K Kosher">
+    </div>
+    <div class="brand-logo">
+        <img src="/imagenes/empresa-gluten.png" alt="Non-GMO Project Verified">
+    </div>
+    <div class="brand-logo">
+        <img src="/imagenes/empresa-banco.jpg" alt="Certified Gluten-Free">
+    </div>
+    <div class="brand-logo">
+        <img src="/imagenes/empresa-vegana.jpg" alt="APLV">
+    </div>
+</div>
+</section>
+
+
+<section class="benefits-section">
+    <div class="container">
+        <h2>¿Por qué elegir productos orgánicos?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <img src="/imagenes/imagen-salud.png" alt="Mejor Salud" class="benefit-icon">
+                <h3>Mejor para tu salud</h3>
+                <p>Consumí alimentos libres de químicos y potencia tu bienestar natural.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="/imagenes/imagen-medioambiente.jpg" alt="Medio Ambiente" class="benefit-icon">
+                <h3>Protegemos el medio ambiente</h3>
+                <p>Prácticas agrícolas sustentables que cuidan el planeta para futuras generaciones.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="/imagenes/imagen-alimentos.jpg" alt="Alimentos" class="benefit-icon">
+                <h3>Un mejor rendimiento</h3>
+                <p>Los mejores productos frescos , son los que hacen vivir una vida mejor y saludable. </p>
+            </div>
+            <div class="benefit-card">
+                <img src="/imagenes/sabor-icon.jpg" alt="Sabor auténtico" class="benefit-icon">
+                <h3>Autenticidad en cada bocado</h3>
+                <p>Disfrutá de sabores reales, intensos y naturalmente deliciosos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-container">
+        <div class="faq-card">
+            <h3 class="question">¿Cuál es su horario de atención?</h3>
+            <p class="answer">Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00.</p>
+        </div>
+        <div class="faq-card">
+            <h3 class="question">¿Realizan envíos a todo el país?</h3>
+            <p class="answer">Sí, realizamos envíos a toda Argentina. Consulta nuestras políticas de envío para más detalles.</p>
+        </div>
+        <div class="faq-card">
+            <h3 class="question">¿Qué métodos de pago aceptan?</h3>
+            <p class="answer">Aceptamos tarjetas de crédito (Visa, Mastercard), débito y transferencias bancarias.</p>
+        </div>
+        <div class="faq-card">
+            <h3 class="question">¿Cómo puedo contactar con soporte?</h3>
+            <p class="answer">Puedes contactarnos a través de nuestro formulario de contacto en la sección "Soporte" o un correo electrónico a soporte@organicfood.com</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="success-counter">
+    <div class="counter-grid">
+        <div class="counter-item">
+            <h2 class="counter-number">15+</h2>
+            <p>Chacras Activas</p>
+        </div>
+        <div class="counter-item">
+            <h2 class="counter-number">500+</h2>
+            <p>Productos Orgánicos</p>
+        </div>
+        <div class="counter-item">
+            <h2 class="counter-number">100%</h2>
+            <p>Natural y Fresco</p>
+        </div>
+    </div>
+</section>
+
+<section class="social-pro-section">
+    <h2>Seguinos en nuestras redes</h2>
+    <div class="social-buttons-container">
+        <a href="#" class="social-btn facebook">
+            <img src="/imagenes/facebook-icon.png" alt="Facebook">
+            <span>Facebook</span>
+        </a>
+        <a href="#" class="social-btn instagram">
+            <img src="/imagenes/instagram-iconn.png" alt="Instagram">
+            <span>Instagram</span>
+        </a>
+        <a href="#" class="social-btn twitter">
+            <img src="/imagenes/twitter-icon.png" alt="Twitter">
+            <span>Twitter</span>
+        </a>
+    </div>
+</section>
+
+
+<!-- Botón WhatsApp Profesional -->
+<div class="whatsapp-container">
+
+    <div class="whatsapp-tooltip">
+        ¿Necesitás ayuda? 💬
+    </div>
+
+    <a href="https://wa.me/5492964559240?text=Hola%20quiero%20información%20sobre%20Organic%20Food"
+       class="whatsapp-button"
+       target="_blank">
+
+        <svg viewBox="0 0 32 32">
+            <path fill="white"
+                  d="M16 .4C7.2.4.1 7.5.1 16.3c0 2.9.8 5.7 2.2 8.2L0 32l7.7-2.3c2.4 1.3 5.1 2 7.9 2 8.8 0 15.9-7.1 15.9-15.9S24.8.4 16 .4zm0 29c-2.4 0-4.8-.6-6.9-1.8l-.5-.3-4.6 1.4 1.5-4.5-.3-.5c-1.3-2.1-2-4.5-2-6.9C3.2 8.4 9.6 2 16 2s12.8 6.4 12.8 14.3S23.4 29.4 16 29.4zm7.1-10.6c-.4-.2-2.3-1.1-2.6-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.3 1.6c-.2.2-.4.3-.8.1s-1.7-.6-3.2-1.9c-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.1-.8.1-.1.4-.4.6-.6.2-.2.3-.4.5-.6.2-.2.2-.4.3-.7 0-.2 0-.5-.1-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.6-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.3.4-1.3 1.2-1.3 3s1.3 3.5 1.5 3.8c.2.3 2.6 4 6.3 5.6 3.7 1.6 3.7 1 4.4.9.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.5z"/>
+        </svg>
+
+    </a>
+</div>
+
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 <strong>Organic Food</strong>. Todos los derechos reservados</p>
+        <p>Desarrollado por <strong>Federico Bitsch</strong> | DARKOR TECH Solutions</p>
+    </div>
+</footer>
+
+</body>
+</html>
