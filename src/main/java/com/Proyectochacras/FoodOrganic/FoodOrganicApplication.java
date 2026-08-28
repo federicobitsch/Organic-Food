@@ -65,13 +65,13 @@ public class FoodOrganicApplication implements CommandLineRunner {
 				Usuario userProductor = new Usuario();
 				userProductor.setNombreUsuario("Juan Productor");
 				userProductor.setEmail("productor1@correo.com");
-				userProductor.setPassword("12345");
+				userProductor.setPassword("1234");
 				userProductor.setRole(Rol.PRODUCTOR);
 
 				// B. Creamos su perfil comercial
 				Productor perfilProductor = new Productor();
 				perfilProductor.setNombreCompleto("Juan Productor");
-				perfilProductor.setTelefono("2964-123456");
+				perfilProductor.setTelefono("2964123456");
 				perfilProductor.setDireccion("Ruta 3, Río Grande");
 				perfilProductor.setDescripcion("Ventas de productos orgánicos locales.");
 
