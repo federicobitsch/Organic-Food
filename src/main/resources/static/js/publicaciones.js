@@ -44,8 +44,7 @@ async function cargarPublicaciones() {
             div.onclick = (e) => {
                 // Evitamos redirigir si el click fue en los botones de Admin
                 if (!e.target.closest('.admin-actions')) {
-                    alert(`Redirigiendo al detalle de la chacra ¡MANTENIMIENTO!  .... : ${p.nombre}...\n(Acá podés enlazar a /chacra/${p.id})`);
-                    // window.location.href = `/chacra/${p.id}`; // Descomentar cuando tengas la vista
+                    window.location.href = `/chacra/${p.id}`;
                 }
             };
 
